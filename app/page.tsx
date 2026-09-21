@@ -239,7 +239,26 @@ async function submit(e: FormEvent<HTMLFormElement>) {
     <section className="section pathway"><div className="section-kicker">HOW IT WORKS</div><h2>{c.pathwayTitle}</h2><p className="lead">{c.pathwayIntro}</p><div className="steps">{c.pathway.map(x=><article className="step" key={x.n}><div className="step-number">{x.n}</div><div><h3>{x.title}</h3><p>{x.body}</p></div></article>)}</div></section>
 
     <section className="final-cta"><div><div className="section-kicker">BEGIN YOUR JOURNEY</div><h2>{c.ctaTitle}</h2><p>{c.ctaBody}</p></div><button className="primary light" onClick={openForm}>{c.cta}<span>↗</span></button></section>
+<section className="contact-section">
+  <div>
+    <div className="section-kicker">
+      CONTACT / संपर्क करें
+    </div>
+    <h2>
+      {lang === 'hi' ? 'कोई प्रश्न है?' : 'Have a question?'}
+    </h2>
+    <p>
+      {lang === 'hi'
+        ? 'कार्यक्रम से संबंधित किसी भी जानकारी के लिए हमसे संपर्क करें।'
+        : 'For any questions regarding the program, please contact us.'}
+    </p>
+  </div>
 
+  <a className="contact-phone" href="tel:9130542150">
+    <span>📞</span>
+    <strong>9130542150</strong>
+  </a>
+</section>
     <footer><span>LIVE LIKE A MONK • ISKCON NVCC PUNE</span><span>Residential Gurukul Training</span></footer>
 
    {open && (
