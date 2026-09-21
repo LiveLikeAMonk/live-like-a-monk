@@ -192,7 +192,8 @@ async function submit(e: FormEvent<HTMLFormElement>) {
   }
 }
 
-  return <main>
+ return (
+  <main>
     <header className="nav">
       <a className="brand" href="#top" aria-label="Live Like a Monk">
         <span className="brand-mark"><img src={lotusImage} alt="" /></span>
@@ -456,6 +457,9 @@ async function submit(e: FormEvent<HTMLFormElement>) {
     </div>
   </div>
 )}
+    </main>
+  );
+}
     </main>
   );
 }
