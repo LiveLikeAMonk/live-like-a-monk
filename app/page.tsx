@@ -453,7 +453,17 @@ async function submit(e: FormEvent<HTMLFormElement>) {
                 {error}
               </p>
             )}
+<div className="form-contact">
+  <strong>
+    {lang === 'hi'
+      ? 'कार्यक्रम से संबंधित किसी भी जानकारी के लिए संपर्क करें:'
+      : 'For any questions regarding the program:'}
+  </strong>
 
+  <a href="tel:9130542150">
+    📞 9130542150
+  </a>
+</div>
             {/* Submit */}
             <button
               className="primary form-submit"
