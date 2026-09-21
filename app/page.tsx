@@ -1,7 +1,7 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
-
+import emailjs from '@emailjs/browser';
 type Lang = 'hi' | 'en';
 
 type Content = {
