@@ -154,7 +154,7 @@ async function submit(e: FormEvent<HTMLFormElement>) {
 
   const form = new FormData(e.currentTarget);
 
-  const data = {
+  const templateParams = {
     name: String(form.get('name') || ''),
     mobile: String(form.get('mobile') || ''),
     age: String(form.get('age') || ''),
@@ -169,7 +169,7 @@ async function submit(e: FormEvent<HTMLFormElement>) {
     await emailjs.send(
       'service_1ve1iom',
       'template_ypw8wpq',
-      data,
+      templateParams,
       {
         publicKey: '8jCdn6vjWwsSe9CNK',
       }
@@ -177,7 +177,7 @@ async function submit(e: FormEvent<HTMLFormElement>) {
 
     setSent(true);
   } catch (err) {
-    console.error('EmailJS error:', err);
+    console.error(err);
     setError(
       err instanceof Error
         ? err.message
