@@ -1,7 +1,7 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
-
+import emailjs from '@emailjs/browser';
 type Lang = 'hi' | 'en';
 
 type Content = {
@@ -147,19 +147,46 @@ export default function Home() {
 
   const openForm = () => { setOpen(true); setSent(false); setError(''); };
 
-  async function submit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault(); setLoading(true); setError('');
-    const form = new FormData(e.currentTarget);
-    const data = Object.fromEntries(form.entries());
-    data.language = lang;
-    try {
-      const res = await fetch('/api/register', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json.error || 'Unable to submit registration.');
-      setSent(true);
-    } catch (err) { setError(err instanceof Error ? err.message : 'Unable to submit registration.'); }
-    finally { setLoading(false); }
+async function submit(e: FormEvent<HTMLFormElement>) {
+  e.preventDefault();
+  setLoading(true);
+  setError('');
+
+  const form = new FormData(e.currentTarget);
+
+  const data = {
+    name: String(form.get('name') || ''),
+    mobile: String(form.get('mobile') || ''),
+    age: String(form.get('age') || ''),
+    status: String(form.get('status') || ''),
+    nativeAddress: String(form.get('nativeAddress') || ''),
+    currentAddress: String(form.get('currentAddress') || ''),
+    note: String(form.get('note') || ''),
+    language: lang === 'en' ? 'English' : 'Hindi',
+  };
+
+  try {
+    await emailjs.send(
+      'service_1ve1iom',
+      'template_ypw8wpq',
+      data,
+      {
+        publicKey: '8jCdn6vjWwsSe9CNK',
+      }
+    );
+
+    setSent(true);
+  } catch (err) {
+    console.error('EmailJS error:', err);
+    setError(
+      err instanceof Error
+        ? err.message
+        : 'Unable to submit registration.'
+    );
+  } finally {
+    setLoading(false);
   }
+}
 
   return <main>
     <header className="nav">
