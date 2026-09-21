@@ -1291,70 +1291,99 @@ footer {
 
 /* Mobile */
 @media (max-width: 700px) {
-  /* Mobile navigation */
+ /* Mobile navigation */
+.nav {
+  padding: 10px 12px;
+  gap: 6px;
+  overflow: hidden;
+}
+
+.brand {
+  min-width: 0;
+  flex: 1 1 auto;
+  gap: 9px;
+}
+
+.brand-mark {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.brand strong {
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.brand small {
+  font-size: 0.58rem;
+  white-space: nowrap;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 0 0 auto;
+}
+
+.nav-actions .lang,
+.nav-actions .nav-apply {
+  min-height: 40px;
+  white-space: nowrap;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.nav-actions .lang {
+  padding: 0 8px;
+  font-size: 0.84rem;
+}
+
+.nav-actions .nav-apply {
+  padding: 0 11px;
+  font-size: 0.86rem;
+}
+
+
+/* Narrow mobile screens */
+@media (max-width: 390px) {
   .nav {
-    padding: 12px 14px;
-    gap: 8px;
+    padding: 8px 9px;
+    gap: 4px;
+  }
+
+  .brand {
+    gap: 7px;
+  }
+
+  .brand-mark {
+    width: 39px;
+    height: 39px;
+  }
+
+  .brand strong {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+  }
+
+  .brand small {
+    display: none;
   }
 
   .nav-actions {
-    gap: 7px;
-    flex-shrink: 0;
+    gap: 4px;
   }
 
   .nav-actions .lang {
-    min-height: 40px;
-    padding: 0 10px;
-    font-size: 0.92rem;
-    font-weight: 600;
+    min-height: 38px;
+    padding: 0 6px;
+    font-size: 0.76rem;
   }
 
   .nav-actions .nav-apply {
-    min-height: 42px;
-    padding: 0 14px;
-    font-size: 0.94rem;
-    font-weight: 700;
-  }
-
-  /* Contact section */
-  .contact-section {
-    padding: 56px 24px;
-    display: block;
-  }
-
-  .contact-section h2 {
-    font-size: 2.35rem;
-    margin-bottom: 14px;
-  }
-
-  .contact-section p {
-    font-size: 1rem;
-    line-height: 1.65;
-    margin-bottom: 28px;
-  }
-
-  .contact-phone {
-    width: fit-content;
-    max-width: 100%;
-    padding: 15px 22px;
-  }
-
-  .contact-phone strong {
-    font-size: 1.05rem;
-  }
-
-  /* Contact information inside registration form */
-  .form-contact {
-    display: block;
-    padding: 16px 18px;
-  }
-
-  .form-contact strong {
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  .form-contact a {
-    display: inline-block;
+    min-height: 38px;
+    padding: 0 8px;
+    font-size: 0.78rem;
   }
 }
