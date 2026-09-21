@@ -23,9 +23,22 @@ export async function POST(request: Request) {
       <p><strong>Native Place Address:</strong><br/>${escapeHtml(body.nativeAddress).replace(/\n/g,'<br/>')}</p>
       <p><strong>Currently Living Address:</strong><br/>${escapeHtml(body.currentAddress).replace(/\n/g,'<br/>')}</p>
       <p><strong>Additional Information:</strong><br/>${escapeHtml(body.note || '—').replace(/\n/g,'<br/>')}</p>`;
+const { data, error } = await resend.emails.send({
+  from: sender,
+  to: recipient,
+  subject: `Live Like a Monk — New Registration: ${body.name}`,
+  html,
+});
 
-    await resend.emails.send({ from: sender, to: recipient, subject: `Live Like a Monk — New Registration: ${body.name}`, html });
-    return NextResponse.json({ ok: true });
+if (error) {
+  console.error('Resend error:', error);
+  return NextResponse.json(
+    { error: error.message || 'Email could not be sent.' },
+    { status: 500 }
+  );
+}
+
+return NextResponse.json({ ok: true, id: data?.id });
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: 'Unable to submit registration.' }, { status: 500 });
