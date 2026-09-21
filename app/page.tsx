@@ -176,14 +176,18 @@ async function submit(e: FormEvent<HTMLFormElement>) {
     );
 
     setSent(true);
-  } catch (err) {
-    console.error(err);
-    setError(
-      err instanceof Error
+ } catch (err) {
+  console.error('EmailJS error:', err);
+
+  const message =
+    err && typeof err === 'object' && 'text' in err
+      ? String((err as { text?: unknown }).text || 'EmailJS request failed.')
+      : err instanceof Error
         ? err.message
-        : 'Unable to submit registration.'
-    );
-  } finally {
+        : 'Unable to submit registration.';
+
+  setError(`Unable to submit registration: ${message}`);
+} finally {
     setLoading(false);
   }
 }
