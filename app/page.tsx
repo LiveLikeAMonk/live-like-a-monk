@@ -192,7 +192,7 @@ export default function Home() {
       <div className="ornament">✦</div>
     </section>
 
-    <section className="image-story"><div className="image-story-copy"><div className="section-kicker">ISKCON NVCC PUNE</div><h2>मंदिर जीवन को केवल देखिए नहीं — <em>अनुभव कीजिए</em></h2><p>NVCC Pune is a center for spiritual learning and devotion, with temple worship, devotional association and a structured environment for spiritual practice.</p></div><img src={deityImage} alt="Sri Sri Radha Vrindavanchandra at ISKCON NVCC Pune" /></section>
+   <section className="image-story"><div className="image-story-copy"><div className="section-kicker">ISKCON NVCC PUNE</div><h2>{lang === 'hi' ? <>मंदिर जीवन को केवल देखिए नहीं — <em>अनुभव कीजिए</em></> : <>Don't Just See Temple Life — <em>Experience It</em></>}</h2><p>{lang === 'hi' ? 'NVCC Pune आध्यात्मिक शिक्षा और भक्ति का एक केंद्र है, जहाँ मंदिर-सेवा, भक्तों का संग और आध्यात्मिक साधना के लिए एक सुव्यवस्थित वातावरण उपलब्ध है।' : 'NVCC Pune is a center for spiritual learning and devotion, with temple worship, devotional association and a structured environment for spiritual practice.'}</p></div><img src={deityImage} alt="Sri Sri Radha Vrindavanchandra at ISKCON NVCC Pune" /></section>
 
     <section className="section tinted" id="eligibility"><div className="section-heading"><div><div className="section-kicker">WHO CAN JOIN</div><h2>{c.eligibilityTitle}</h2></div><p className="lead">{c.eligibilityIntro}</p></div><div className="eligibility-grid">{c.eligibility.map((x,i)=><article className="info-card" key={x.title}><span className="card-index">0{i+1}</span><h3>{x.title}</h3><p>{x.body}</p></article>)}</div></section>
 
