@@ -241,6 +241,218 @@ async function submit(e: FormEvent<HTMLFormElement>) {
 
     <footer><span>LIVE LIKE A MONK • ISKCON NVCC PUNE</span><span>Residential Gurukul Training</span></footer>
 
-    {open && <div className="modal-backdrop" role="dialog" aria-modal="true"><div className="modal"><button className="close" onClick={()=>setOpen(false)} aria-label={c.close}>×</button>{sent ? <div className="success"><div className="success-icon">✓</div><h2>{c.successTitle}</h2><p>{c.successBody}</p><button className="primary" onClick={()=>setOpen(false)}>{c.done}</button></div> : <><div className="section-kicker">INTEREST REGISTRATION</div><h2>{c.formTitle}</h2><p className="modal-intro">{c.formIntro}</p><form onSubmit={submit}><div className="form-grid"><label>{c.name}<input name="name" required /></label><label>{c.mobile}<input name="mobile" type="tel" required /></label><label>{c.age}<input name="age" type="number" min="1" max="99" required /></label><label>{c.status}<select name="status" required defaultValue=""><option value="" disabled>{c.select}</option><option value={c.student}>{c.student}</option><option value={c.professional}>{c.professional}</option><option value={c.business}>{c.business}</option><option value={c.job}>{c.job}</option><option value={c.other}>{c.other}</option></select></label><label className="full">{c.native}<textarea name="nativeAddress" required /></label><label className="full">{c.current}<textarea name="currentAddress" required /></label><label className="full">{c.note}<textarea name="note" /></label><label className="consent full"><input type="checkbox" name="consent" value="yes" required /> <span>{c.consent}</span></label></div>{error && <p className="form-error">{error}</p>}<button className="primary form-submit" disabled={loading} type="submit">{loading ? (lang === 'hi' ? 'भेजा जा रहा है…' : 'Submitting…') : c.submit}<span>→</span></button></form></>}</div></div>}
-  </main>;
-}
+   {open && (
+  <div
+    className="modal-backdrop"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div className="modal">
+
+      <button
+        className="close"
+        onClick={() => setOpen(false)}
+        aria-label={c.close}
+      >
+        ×
+      </button>
+
+      {sent ? (
+        <div className="success">
+
+          <div className="success-icon">
+            ✓
+          </div>
+
+          <h2>
+            {c.successTitle}
+          </h2>
+
+          <p>
+            {c.successBody}
+          </p>
+
+          <button
+            className="primary"
+            onClick={() => setOpen(false)}
+          >
+            {c.done}
+          </button>
+
+        </div>
+      ) : (
+        <>
+          <div className="section-kicker">
+            INTEREST REGISTRATION / रुचि पंजीकरण
+          </div>
+
+          <h2>
+            Live Like a Monk — रुचि पंजीकरण / Interest Registration
+          </h2>
+
+          <p className="modal-intro">
+            अपनी जानकारी भरें। आपकी जानकारी प्राप्त होने के बाद हमारी टीम
+            आपसे संपर्क करेगी।
+            <br />
+            Please provide your details. Our team will contact you after
+            receiving your registration.
+          </p>
+
+          <form onSubmit={submit}>
+
+            <div className="form-grid">
+
+              {/* Name */}
+              <label>
+                पूरा नाम / Full Name
+                <input
+                  name="name"
+                  required
+                />
+              </label>
+
+              {/* Mobile */}
+              <label>
+                मोबाइल नंबर / Mobile Number
+                <input
+                  name="mobile"
+                  type="tel"
+                  required
+                />
+              </label>
+
+              {/* Age */}
+              <label>
+                आयु / Age
+                <input
+                  name="age"
+                  type="number"
+                  min="1"
+                  max="30"
+                  required
+                />
+              </label>
+
+              {/* Status */}
+              <label>
+                वर्तमान स्थिति / Current Status
+
+                <select
+                  name="status"
+                  required
+                  defaultValue=""
+                >
+                  <option value="" disabled>
+                    चुनें / Select
+                  </option>
+
+                  <option value="विद्यार्थी / Student">
+                    विद्यार्थी / Student
+                  </option>
+
+                  <option value="नौकरीपेशा / Working Professional">
+                    नौकरीपेशा / Working Professional
+                  </option>
+
+                  <option value="व्यवसायी / Business Owner">
+                    व्यवसायी / Business Owner
+                  </option>
+
+                  <option value="नौकरी की तलाश में / Seeking Employment">
+                    नौकरी की तलाश में / Seeking Employment
+                  </option>
+
+                  <option value="अन्य / Other">
+                    अन्य / Other
+                  </option>
+                </select>
+              </label>
+
+              {/* Native Address */}
+              <label className="full">
+                मूल स्थान का पता / Native Place Address
+
+                <textarea
+                  name="nativeAddress"
+                  required
+                />
+              </label>
+
+              {/* Current Address */}
+              <label className="full">
+                वर्तमान निवास का पता / Current Residential Address
+
+                <textarea
+                  name="currentAddress"
+                  required
+                />
+              </label>
+
+              {/* Additional Information */}
+              <label className="full">
+                अतिरिक्त जानकारी / Additional Information (Optional)
+
+                <textarea
+                  name="note"
+                />
+              </label>
+
+              {/* Consent */}
+              <label className="consent full">
+
+                <input
+                  type="checkbox"
+                  name="consent"
+                  value="yes"
+                  required
+                />
+
+                <span>
+                  <strong>
+                    मैं समझता/समझती हूँ कि यह केवल रुचि-पंजीकरण है।
+                    अंतिम रूप से निवास एवं प्रवेश, चयन और साक्षात्कार
+                    प्रक्रिया पर निर्भर करेगा।
+                  </strong>
+
+                  <br />
+
+                  <em>
+                    I understand that this is only an expression of interest.
+                    Final residence and admission will be subject to the
+                    selection and interview process.
+                  </em>
+                </span>
+
+              </label>
+
+            </div>
+
+            {/* Error */}
+            {error && (
+              <p className="form-error">
+                {error}
+              </p>
+            )}
+
+            {/* Submit */}
+            <button
+              className="primary form-submit"
+              disabled={loading}
+              type="submit"
+            >
+              {loading
+                ? 'भेजा जा रहा है… / Submitting…'
+                : 'पंजीकरण भेजें / Submit Registration'}
+
+              <span>
+                →
+              </span>
+            </button>
+
+          </form>
+        </>
+      )}
+
+    </div>
+  </div>
+)}
