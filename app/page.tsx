@@ -460,6 +460,4 @@ async function submit(e: FormEvent<HTMLFormElement>) {
     </main>
   );
 }
-    </main>
-  );
-}
+
