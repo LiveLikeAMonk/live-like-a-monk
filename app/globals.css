@@ -1199,3 +1199,135 @@ footer {
     flex-direction: column;
   }
 }
+/* Contact Section */
+.contact-section {
+  padding: 72px 7vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: #fffaf3;
+  border-top: 1px solid rgba(91, 47, 31, 0.12);
+}
+
+.contact-section .section-kicker {
+  margin-bottom: 14px;
+}
+
+.contact-section h2 {
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.05;
+  color: #2d211b;
+}
+
+.contact-section p {
+  margin: 0;
+  max-width: 600px;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: #665a52;
+}
+
+.contact-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 28px;
+  border-radius: 999px;
+  background: #7d301d;
+  color: #fffaf3;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 10px 30px rgba(80, 35, 20, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-phone span {
+  font-size: 1.2rem;
+}
+
+.contact-phone strong {
+  font-size: 1.2rem;
+  letter-spacing: 0.03em;
+}
+
+.contact-phone:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(80, 35, 20, 0.22);
+}
+
+
+/* Contact information inside registration form */
+.form-contact {
+  margin: 24px 0 20px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: #fff7ed;
+  border: 1px solid rgba(125, 48, 29, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.form-contact strong {
+  color: #4b372d;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.form-contact a {
+  color: #7d301d;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.form-contact a:hover {
+  text-decoration: underline;
+}
+
+
+/* Mobile */
+@media (max-width: 700px) {
+  .contact-section {
+    padding: 56px 24px;
+    display: block;
+  }
+
+  .contact-section h2 {
+    font-size: 2.35rem;
+    margin-bottom: 14px;
+  }
+
+  .contact-section p {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .contact-phone {
+    width: fit-content;
+    max-width: 100%;
+    padding: 15px 22px;
+  }
+
+  .contact-phone strong {
+    font-size: 1.05rem;
+  }
+
+  .form-contact {
+    display: block;
+    padding: 16px 18px;
+  }
+
+  .form-contact strong {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .form-contact a {
+    display: inline-block;
+  }
+}
